@@ -1,9 +1,14 @@
 "use strict";
 
-const http = require("http");
 const express = require("express");
+const config = require("./config");
+const router = require("./router");
 
-const app = express();
-const server = http.createServer(app);
+/**
+ * Express instance.
+ */
+let application = express();
 
-server.listen(80);
+application.use("/", router);
+
+application.listen(config.server.port, config.server.port, config.server.callback);

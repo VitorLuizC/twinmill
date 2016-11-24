@@ -1,19 +1,20 @@
 {
-	"name": "twinmill",
-	"version": "1.0.0",
-	"description": "API simples de um CMS escrita em Node.js.",
-	"main": "app/index.js",
-	"scripts": {
-		"test": "test"
-	},
-	"keywords": [
-		"api",
-		"cms",
-		"twinmill"
-	],
-	"author": "Vitor Luiz Cavalcanti <vitorluizc@outlook.com>",
-	"license": "MIT",
-	"dependencies": {
-		"express": "^4.14.0"
-	}
+  "name": "twinmill",
+  "version": "1.0.0",
+  "description": "API simples de um CMS escrita em Node.js.",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "api",
+    "cms",
+    "twinmill"
+  ],
+  "author": "Vitor Luiz Cavalcanti <vitorluizc@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mysql2": "^1.1.2"
+  }
 }

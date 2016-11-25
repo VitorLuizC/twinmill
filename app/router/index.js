@@ -7,8 +7,12 @@ const express = require("express");
  */
 let router = express.Router();
 
+const author = require("./author.js");
+
 router.get("/", (req, res) => {
-	res.json({message: "Olá"});
+  res.json({message: "Olá"});
 });
+
+router.use("/author", author);
 
 module.exports = router;

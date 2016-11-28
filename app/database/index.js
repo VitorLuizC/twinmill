@@ -1,16 +1,11 @@
 "use strict";
 
-const mysql = require("mysql2");
+const mysql2 = require("mysql2");
 const config = require("../config");
 
 /**
  * MySQL Server connection.
  */
-let connection = mysql.createConnection({
-  host: config.database.host,
-  user: config.database.user,
-  password: config.database.password,
-  database: config.database.database
-});
+let database = mysql2.createConnection(config.database);
 
-module.exports = connection;
+module.exports = database;

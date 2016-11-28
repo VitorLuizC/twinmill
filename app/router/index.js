@@ -1,16 +1,15 @@
 "use strict";
 
 const express = require("express");
+const author = require("./author.js");
 
 /**
- * Express router instance.
+ * Express's Router instance.
  */
 let router = express.Router();
 
-const author = require("./author.js");
-
 router.get("/", (req, res) => {
-  res.json({message: "Olá"});
+  res.json({});
 });
 
 router.use("/author", author);

@@ -6,6 +6,6 @@ const database = require("./database.js");
 /**
  * General configuration's object.
  */
-const config = { server, database };
+let config = { server, database };
 
 module.exports = config;

@@ -1,27 +1,17 @@
 "use strict";
 
-const database = require("../database");
-
-let model = { selectAll, insert };
+const { execute } = require("../database");
 
 /**
  * Return all the active Authors from database.
  * @returns {Array<Object>}
  */
-function selectAll() {
-  var data;
-
+async function get() {
   const QUERY = `
     SELECT *
       FROM author`;
 
-  database.query(QUERY, (err, results) => {
-    if (err) throw err;
-
-    data = results;
-  });
-
-  return data;
+  return await execute(QUERY);
 }
 
 /**
@@ -30,9 +20,7 @@ function selectAll() {
  * @param {string} email
  * @param {string} password
  */
-function insert(name, email, password) {
-  var data;
-
+async function add(name, email, password) {
   const QUERY = `
     INSERT INTO author (
       name,
@@ -40,13 +28,7 @@ function insert(name, email, password) {
       password
     ) VALUES (?, ?, ?)`;
 
-  database.execute(QUERY, [name, email, password], (err, results) => {
-    if (err) throw err;
-
-    data = results;
-  });
-
-  return data;
+  return await execute(QUERY, [name, email, password]);
 }
 
 /* TODO: Add the default created and active values
@@ -60,4 +42,4 @@ function insert(name, email, password) {
  * )ENGINE=InnoDB;
  */
 
-module.exports = model;
+module.exports = { add, get };

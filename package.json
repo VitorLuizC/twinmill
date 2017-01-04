@@ -4,7 +4,8 @@
   "description": "API simples de um CMS escrita em Node.js.",
   "main": "app/index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node --harmony-async-await ."
   },
   "keywords": [
     "api",

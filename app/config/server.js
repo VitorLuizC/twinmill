@@ -1,6 +1,6 @@
 "use strict";
 
-let config = {
+const config = {
   port: 9000,
   host: "localhost",
   callback: logServerInitialization

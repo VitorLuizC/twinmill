@@ -1,9 +1,12 @@
 "use strict";
 
-let config = {
+/**
+ * Database configuration.
+ */
+const config = {
   host: "localhost",
-  user: "admin",
-  password: "12345", // such safe
+  user: "root",
+  password: "123456", // such safe
   database: "twinmill"
 };
 

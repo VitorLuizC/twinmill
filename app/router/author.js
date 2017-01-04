@@ -16,14 +16,17 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  if (req.params.name && req.params.email && req.params.password) {
-    try {
-      dao.add(req.params.name, req.params.email, req.params.password);
-      res.statusCode = 200;
-    } catch (err) {
-      res.statusCode = 500;
-      res.json({ error: err });
-    }
+  try {
+    var { name, email, password } = req.params;
+
+    if (!name || !email || !password)
+      throw new Error("Invalid requisition param.");
+
+    dao.add(name, email, password);
+    res.statusCode = 200;
+  } catch (err) {
+    res.statusCode = 500;
+    res.json({ error: err });
   }
 });
 

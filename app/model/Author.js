@@ -31,15 +31,4 @@ async function add(name, email, password) {
   return await execute(QUERY, [name, email, password]);
 }
 
-/* TODO: Add the default created and active values
- * CREATE TABLE author (
- *   \`id\` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
- *   name VARCHAR(70) not null,
- *   email VARCHAR(255) not null,
- *   password VARCHAR(16) not null,
- *   created DATE not null,
- *   active BOOLEAN not null
- * )ENGINE=InnoDB;
- */
-
 module.exports = { add, get };

@@ -15,6 +15,7 @@
   "author": "Vitor Luiz Cavalcanti <vitorluizc@outlook.com>",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "is": "^3.2.0",
     "mysql2": "^1.1.2",

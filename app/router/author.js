@@ -1,33 +1,38 @@
 "use strict";
 
 const express = require("express");
-const dao = require("../model/author.js");
+const dao = require("../model/_author.js");
 
 let router = express.Router();
 
-router.get("/", (req, res) => {
+router
+  .get("/", getAuthor)
+  .post("/", postAuthor);
+
+async function getAuthor(req, res) {
   try {
     res.statusCode = 200;
-    res.json(dao.get());
+    res.json(await dao.get());
   } catch (err) {
     res.statusCode = 500;
     res.json({ error: err });
   }
-});
+}
 
-router.post("/", (req, res) => {
+async function postAuthor(req, res) {
   try {
-    var { name, email, password } = req.params;
+    var { name, email, password } = req.body;
 
     if (!name || !email || !password)
       throw new Error("Invalid requisition param.");
 
-    dao.add(name, email, password);
+    const author = await dao.add(name, email, password);
     res.statusCode = 200;
+    res.json(author);
   } catch (err) {
     res.statusCode = 500;
     res.json({ error: err });
   }
-});
+}
 
 module.exports = router;

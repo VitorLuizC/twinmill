@@ -1,42 +1,7 @@
 <!DOCTYPE html>
-
+<html>
+<head></head>
 <body>
-  <script>
-    request('http://localhost:9000/author')
-      .then(results => {
-        results = (results instanceof Object) ? results : JSON.parse(results);
-
-        list.render(results);
-      })
-      .catch(e => console.log(e));
-
-    const list = {
-      render(results) {
-
-      }
-    }
-
-    function request(url, method = 'GET', send = null) {
-      return new Promise((resolve, reject) => {
-        const request = new XMLHttpRequest();
-
-        request.addEventListener('readystatechange', e => {
-          const DONE = 4;
-          const SUCCESS = 200;
-
-          if (request.readyState === DONE) {
-            if (request.status === SUCCESS) {
-              resolve(request.responseText, request.responseType, request.response);
-            } else {
-              reject(request.status);
-            }
-          }
-        });
-
-        request.open(method, url);
-        request.send(send);
-      });
-    }
-  </script>
+  <script src="main.js"></script>
 </body>
-
+</html>

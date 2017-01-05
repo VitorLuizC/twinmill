@@ -1,7 +1,7 @@
 "use strict";
 
 const express = require("express");
-const dao = require("../model/_author.js");
+const dao = require("../model/author.js");
 
 let router = express.Router();
 
